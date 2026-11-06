@@ -3,9 +3,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Thống kê chi phí sinh hoạt</title>
 <style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#faf8f5;--card:#fff;--tx:#2a2420;--mut:#7a6f66;--bd:#d9d0c7;--hd:#cf3f22;--hdtx:#fff;--blue:#1d4fc4;--green:#1f7a3a;--red:#c8281a;--redbg:#fde4e0;--soft:#f3eee8}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#1a1714;--card:#25211d;--tx:#f0e9e2;--mut:#a89d92;--bd:#443d36;--hd:#b0341b;--blue:#7ea6ff;--green:#5fd488;--red:#ff7a6b;--redbg:#4a2420;--soft:#2e2924}}
-:root[data-theme="dark"]{color-scheme:dark;--bg:#1a1714;--card:#25211d;--tx:#f0e9e2;--mut:#a89d92;--bd:#443d36;--hd:#b0341b;--blue:#7ea6ff;--green:#5fd488;--red:#ff7a6b;--redbg:#4a2420;--soft:#2e2924}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#faf8f5;--ln:#ebe4dc;--card:#fff;--tx:#2a2420;--mut:#7a6f66;--bd:#d9d0c7;--hd:#cf3f22;--hdtx:#fff;--blue:#1d4fc4;--green:#1f7a3a;--red:#c8281a;--redbg:#fde4e0;--soft:#f3eee8}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--ln:#38322c;--bg:#1a1714;--card:#25211d;--tx:#f0e9e2;--mut:#a89d92;--bd:#443d36;--hd:#b0341b;--blue:#7ea6ff;--green:#5fd488;--red:#ff7a6b;--redbg:#4a2420;--soft:#2e2924}}
+:root[data-theme="dark"]{color-scheme:dark;--ln:#38322c;--bg:#1a1714;--card:#25211d;--tx:#f0e9e2;--mut:#a89d92;--bd:#443d36;--hd:#b0341b;--blue:#7ea6ff;--green:#5fd488;--red:#ff7a6b;--redbg:#4a2420;--soft:#2e2924}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.4 "Times New Roman",Georgia,serif}
 .wrap{max-width:1200px;margin:0 auto;padding:12px}
@@ -21,17 +21,17 @@ h1 small{display:block;font-size:.65em;font-weight:400;opacity:.9;margin-top:2px
 .mpick{display:flex;gap:8px}.mpick select{flex:1;min-width:0;font:inherit;font-size:16px;padding:7px 28px 7px 12px;border:1.5px solid var(--bd);border-radius:999px;background:var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237a6f66' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 11px center;color:var(--tx);appearance:none;-webkit-appearance:none;cursor:pointer;text-align:center;text-align-last:center}.mpick select:hover,.mpick select:focus{border-color:var(--hd);outline:0}
 .week{overflow-x:auto;margin-bottom:14px;border:1.5px solid var(--bd);border-radius:6px;background:var(--card)}
 table{border-collapse:collapse;width:100%;min-width:max-content}
-th,td{border:1px solid var(--bd);padding:3px 4px;text-align:center;vertical-align:middle}
+th,td{border:1px solid var(--ln);padding:1px 3px;text-align:center;vertical-align:middle}
 th{background:var(--soft);font-size:13px;cursor:pointer;user-select:none;white-space:nowrap}
 th.red{background:var(--redbg);color:var(--red)}
 th.lab,td.lab{font-weight:700;background:var(--soft);position:sticky;left:0;z-index:1;white-space:nowrap;min-width:78px;cursor:default}
-.cell{display:flex;gap:3px;align-items:center;min-width:150px}
-.cell select{flex:1;min-width:0;font:inherit;font-size:13px;padding:3px;border:1px solid var(--bd);border-radius:12px;background:var(--soft);color:var(--tx)}
-.cell input{width:48px;font:inherit;font-size:13px;text-align:right;border:1px solid transparent;background:transparent;color:var(--tx);padding:2px}
+.cell{display:flex;gap:2px;align-items:center;min-width:112px}
+.cell select{flex:1;min-width:0;font:inherit;font-size:12.5px;padding:1px 6px;height:22px;border:1px solid var(--bd);border-radius:11px;background:var(--soft);color:var(--tx);appearance:none;-webkit-appearance:none;cursor:pointer;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.pb{flex:1;min-width:0;font:inherit;font-size:12.5px;height:22px;padding:0 8px;border:1px solid var(--bd);border-radius:11px;background:var(--soft);color:var(--tx);cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.pb:hover{border-color:var(--hd)}.pb.e{background:transparent;border-color:transparent;color:var(--mut);opacity:.35;font-size:16px;line-height:1}.cell:hover .pb.e,.pb.e:focus{opacity:1;border:1px dashed var(--bd)}#pop{position:absolute;z-index:50;background:var(--card);border:1.5px solid var(--bd);border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.2);padding:4px;min-width:180px;max-height:260px;overflow:auto;display:none}#pop button{display:flex;justify-content:space-between;gap:16px;width:100%;font:inherit;font-size:14px;text-align:left;border:0;background:transparent;color:var(--tx);padding:6px 10px;border-radius:5px;cursor:pointer}#pop button:hover{background:var(--redbg)}#pop .x{color:var(--red)}#pop i{font-style:normal;color:var(--mut)}.cell.em input{display:none}.tg{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--soft);color:var(--tx);border-radius:999px;padding:3px 12px}.tg:hover{border-color:var(--hd)}.cell select:hover,.cell select:focus{border-color:var(--hd);outline:0}
+.cell input{width:32px;font:inherit;font-size:12.5px;text-align:right;border:1px solid transparent;background:transparent;color:var(--tx);padding:1px;height:20px;-moz-appearance:textfield}.cell input::placeholder{color:var(--mut);opacity:.5}.cell input::-webkit-outer-spin-button,.cell input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
 .cell input:focus{border-color:var(--blue);outline:0}
 td.tot{font-weight:700;font-size:15px;background:var(--soft)}
 td.tot.z{color:var(--mut)}
-.note{width:100%;box-sizing:border-box;font:inherit;font-size:13px;border:0;background:transparent;color:var(--tx);min-width:150px;text-align:left}
+.note{width:100%;box-sizing:border-box;font:inherit;font-size:13px;border:0;background:transparent;color:var(--tx);min-width:112px;text-align:left}
 .zero{color:var(--mut)}
 .side{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:6px}
 .panel{border:1.5px solid var(--bd);border-radius:6px;background:var(--card);padding:10px}
@@ -41,10 +41,10 @@ td.tot.z{color:var(--mut)}
 .menu-row{display:flex;gap:6px;align-items:center;padding:3px 0;border-bottom:1px dashed var(--bd)}
 .menu-row span:first-child{flex:1}
 .menu-row button,.add button{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--soft);color:var(--tx);border-radius:4px;padding:2px 8px}
-.add{display:flex;gap:6px;margin-top:8px}
+.add{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .add input{font:inherit;padding:4px;border:1px solid var(--bd);border-radius:4px;background:var(--card);color:var(--tx);min-width:0}
 .add input:first-child{flex:1}.add input:nth-child(2){width:70px}
-.hint{font-size:12px;color:var(--mut);margin:6px 2px}
+.hint{font-size:12px;color:var(--mut);margin:6px 2px}.add select,.menu-row select{font:inherit;font-size:12px;border:1px solid var(--bd);border-radius:4px;background:var(--card);color:var(--tx);padding:2px}
 </style></head>
 <body><div class="wrap">
 <h1 id="title"></h1>
@@ -55,17 +55,18 @@ td.tot.z{color:var(--mut)}
  <div class="box c3"><b>Tổng còn lại</b><div class="v" id="left">0</div></div>
 </div>
 <div class="hint">Đơn vị: nghìn đồng. Chọn món ở ô thả xuống để tự điền giá, hoặc gõ số tiền trực tiếp. Bấm vào tên ngày để đánh dấu ngày nhận tiền (in đỏ). Dữ liệu được lưu trên trình duyệt của bạn.</div>
-<div id="weeks"></div>
+<div class="hint"><button id="tg" class="tg"></button></div><div id="weeks"></div>
 <div class="side">
  <div class="panel"><h2 id="yrTitle"></h2><table class="yr" id="yr"></table></div>
  <div class="panel"><h2>Thực đơn &amp; giá (Đồ ăn)</h2><div id="menu"></div>
-  <div class="add"><input id="mn" placeholder="Tên món"><input id="mp" type="number" min="0" placeholder="Giá"><button id="ma">Thêm</button></div></div>
+  <div class="add"><input id="mn" placeholder="Tên món"><input id="mp" type="number" min="0" placeholder="Giá"><select id="mk"><option value="snack">Dặm &amp; Bonus</option><option value="main">Bữa chính</option><option value="all">Tất cả</option></select><button id="ma">Thêm</button></div></div>
 </div>
 </div>
 <script>
 const MEALS=[["sang","Sáng"],["trua","Trưa"],["dtrua","Dặm Trưa"],["dchieu","Dặm Chiều"],["toi","Tối"],["dtoi","Dặm Tối"]];
 const DN=["CN","Thứ 2","Thứ 3","Thứ 4","Thứ 5","Thứ 6","Thứ 7"];
-const KEY="chitieu-v1";
+const pop=document.createElement("div");pop.id="pop";document.body.appendChild(pop);let popId=null;document.addEventListener("click",e=>{const b=e.target.closest("[data-p]");if(b){const id=b.dataset.p;if(popId===id&&pop.style.display==="block"){pop.style.display="none";return}popId=id;const c=M().cells[id]||{};const main=["sang","trua","toi"].includes(id.split("_")[1]);const its=S.menu.map((x,i)=>[x,i]).filter(([x])=>!x.k||x.k==="all"||(x.k==="main")===main);pop.innerHTML=(its.map(([x,i])=>`<button data-pi="${i}">${esc(x.n)}<i>${fmt(x.p)}</i></button>`).join("")||'<div class="hint">Chưa có món cho bữa này. Thêm ở mục Thực đơn.</div>')+(c.dish?'<button class="x" data-pi="-1">✕ Bỏ chọn</button>':"");const r=b.getBoundingClientRect();pop.style.display="block";pop.style.left=Math.max(4,Math.min(r.left+scrollX,scrollX+innerWidth-pop.offsetWidth-4))+"px";let top=r.bottom+scrollY+4;if(r.bottom+pop.offsetHeight>innerHeight)top=Math.max(4,r.top+scrollY-pop.offsetHeight-4);pop.style.top=top+"px";return}const o=e.target.closest("[data-pi]");if(o&&popId){const m=M(),i=+o.dataset.pi,c=m.cells[popId]||(m.cells[popId]={dish:"",amt:0});if(i<0){c.dish="";c.amt=0}else{c.dish=S.menu[i].n;c.amt=S.menu[i].p}pop.style.display="none";save();render();return}if(!e.target.closest("#pop"))pop.style.display="none"});document.addEventListener("keydown",e=>{if(e.key==="Escape")pop.style.display="none"});
+const KINDS=[["snack","Dặm &amp; Bonus"],["main","Bữa chính"],["all","Tất cả"]];const KEY="chitieu-v1";
 let S;
 try{S=JSON.parse(localStorage.getItem(KEY)||"null")}catch(e){S=null}
 if(!S)S={menu:[{n:"Bánh mì",p:20},{n:"Bún bò DakLak",p:45},{n:"Cơm sườn",p:40},{n:"Phở",p:50},{n:"Cà phê",p:25}],months:{}};
@@ -79,9 +80,9 @@ const dayTotal=(m,d)=>{let t=0;for(const k in m.cells)if(k.startsWith("d"+d+"_")
 const monthTotal=k=>{const m=S.months[k];if(!m)return 0;let t=0;for(const c in m.cells)t+=+m.cells[c].amt||0;return t};
 function cell(m,id){
   const c=m.cells[id]||{dish:"",amt:0};
-  let opts='<option value=""></option>'+S.menu.map(x=>`<option value="${esc(x.n)}"${x.n===c.dish?" selected":""}>${esc(x.n)}</option>`).join("");
-  if(c.dish&&!S.menu.some(x=>x.n===c.dish))opts+=`<option selected>${esc(c.dish)}</option>`;
-  return `<div class="cell"><input type="number" min="0" data-a="${id}" value="${c.amt||0}"><select data-s="${id}">${opts}</select></div>`;
+  
+  
+  return `<div class="cell${c.dish||c.amt?"":" em"}"><input type="number" min="0" data-a="${id}" value="${c.amt||""}" placeholder="0"><button type="button" class="pb${c.dish?"":" e"}" data-p="${id}" title="${esc(c.dish)}">${c.dish?esc(c.dish):"＋"}</button></div>`;
 }
 function render(){
   const [y,mo]=ym.split("-").map(Number),m=M(),n=new Date(y,mo,0).getDate();
@@ -93,12 +94,12 @@ function render(){
   document.getElementById("tm").textContent=fmt(tot);
   const l=document.getElementById("left");l.textContent=fmt(left);l.className="v"+(left<0?" neg":"");
   // chia tuần (CN → T7)
-  const weeks=[];let cur=[];
+  document.getElementById("tg").textContent=S.full?"Thu gọn (ẩn bữa trống)":"Hiện đủ các bữa (Dặm, Bonus)";const weeks=[];let cur=[];
   for(let d=1;d<=n;d++){cur.push(d);if(new Date(y,mo-1,d).getDay()===6||d===n){weeks.push(cur);cur=[]}}
   document.getElementById("weeks").innerHTML=weeks.map(w=>{
     let h='<div class="week"><table><tr><th class="lab">Ngày</th>'+w.map(d=>`<th data-r="${d}" class="${m.red[d]?"red":""}" title="Bấm để đánh dấu ngày nhận tiền">${DN[new Date(y,mo-1,d).getDay()]}, ${d}/${mo}/${y}</th>`).join("")+"</tr>";
-    MEALS.forEach(([k,lb])=>{h+=`<tr><td class="lab">${lb}</td>`+w.map(d=>`<td>${cell(m,`d${d}_${k}`)}</td>`).join("")+"</tr>"});
-    h+='<tr><td class="lab">Bonus</td>'+w.map(d=>`<td>${[0,1,2].map(i=>cell(m,`d${d}_b${i}`)).join("")}</td>`).join("")+"</tr>";
+    const has=k=>w.some(d=>{const c=m.cells[`d${d}_${k}`];return c&&(c.dish||c.amt)});MEALS.forEach(([k,lb])=>{if(!(S.full||["sang","trua","toi"].includes(k)||has(k)))return;h+=`<tr><td class="lab">${lb}</td>`+w.map(d=>`<td>${cell(m,`d${d}_${k}`)}</td>`).join("")+"</tr>"});
+    if(S.full||[0,1,2].some(i=>has("b"+i))){h+='<tr><td class="lab">Bonus</td>'+w.map(d=>{let last=-1;[0,1,2].forEach(i=>{const c=m.cells[`d${d}_b${i}`];if(c&&(c.dish||c.amt))last=i});const cnt=S.full?3:Math.min(3,last+2);return `<td>${Array.from({length:cnt},(_,i)=>cell(m,`d${d}_b${i}`)).join("")}</td>`}).join("")+"</tr>"}
     h+='<tr><td class="lab">Tổng</td>'+w.map(d=>{const t=dayTotal(m,d);return `<td class="tot${t?"":" z"}">${fmt(t)}</td>`}).join("")+"</tr>";
     h+='<tr><td class="lab">Chú thích</td>'+w.map(d=>`<td><input class="note" data-n="${d}" value="${esc(m.notes[d]||"")}"></td>`).join("")+"</tr></table></div>";
     return h}).join("");
@@ -108,7 +109,7 @@ function render(){
   for(let i=1;i<=12;i++){const k=y+"-"+String(i).padStart(2,"0"),t=monthTotal(k);yt+=t;r+=`<tr class="${k===ym?"cur":""}"><td>Tháng ${i}</td><td>${t?fmt(t):""}</td></tr>`}
   document.getElementById("yr").innerHTML=r+`<tr><td>Cả năm</td><td><b>${fmt(yt)}</b></td></tr>`;
   // menu
-  document.getElementById("menu").innerHTML=S.menu.map((x,i)=>`<div class="menu-row"><span>${esc(x.n)}</span><span>${fmt(x.p)}</span><button data-del="${i}">Xóa</button></div>`).join("")||'<div class="hint">Chưa có món nào.</div>';
+  document.getElementById("menu").innerHTML=S.menu.map((x,i)=>`<div class="menu-row"><span>${esc(x.n)}</span><span>${fmt(x.p)}</span><select data-k="${i}">${KINDS.map(([v,l])=>`<option value="${v}"${(x.k||"all")===v?" selected":""}>${l}</option>`).join("")}</select><button data-del="${i}">Xóa</button></div>`).join("")||'<div class="hint">Chưa có món nào.</div>';
 }
 document.addEventListener("change",e=>{
   const t=e.target,m=M();
@@ -116,13 +117,13 @@ document.addEventListener("change",e=>{
   if(t.id==="budget"){m.budget=+t.value||0;save();render();return}
   if(t.dataset.s){const id=t.dataset.s,it=S.menu.find(x=>x.n===t.value);const c=m.cells[id]||(m.cells[id]={dish:"",amt:0});c.dish=t.value;if(it)c.amt=it.p;if(!t.value)c.amt=0;save();render();return}
   if(t.dataset.a){const id=t.dataset.a,c=m.cells[id]||(m.cells[id]={dish:"",amt:0});c.amt=+t.value||0;save();render();return}
-  if(t.dataset.n){m.notes[t.dataset.n]=t.value;save()}
+  if(t.dataset.k!==undefined){S.menu[+t.dataset.k].k=t.value;save();render();return}if(t.dataset.n){m.notes[t.dataset.n]=t.value;save()}
 });
 document.addEventListener("click",e=>{
   const t=e.target,m=M();
-  if(t.dataset.r){m.red[t.dataset.r]=!m.red[t.dataset.r];save();render()}
+  if(t.id==="tg"){S.full=!S.full;save();render();return}if(t.dataset.r){m.red[t.dataset.r]=!m.red[t.dataset.r];save();render()}
   if(t.dataset.del!==undefined){S.menu.splice(+t.dataset.del,1);save();render()}
-  if(t.id==="ma"){const n=document.getElementById("mn").value.trim(),p=+document.getElementById("mp").value||0;if(n){S.menu.push({n,p});save();render()}}
+  if(t.id==="ma"){const n=document.getElementById("mn").value.trim(),p=+document.getElementById("mp").value||0;if(n){S.menu.push({n,p,k:document.getElementById("mk").value});save();render()}}
 });
 render();
 </script></body></html>
